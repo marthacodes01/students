@@ -1,0 +1,67 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        link(rel="stylesheet", href="output.css")
+    body 
+        main(class="bg-slate-600 text-white min-h-screen") 
+            h1 Student Registration 
+                div(class="grid lg:grid-cols-4  gap-8")
+                //-form
+                form(action="/",method="post", class=" bg-blue-500 rounded-lg space-y-4 ")
+                    div
+                        label(for="first-name") First name 
+                        input(type="text",name="first-name" class="block  bg-gray-100 px4 py-2 rounded-md text-black mt-2")
+                    div
+                        label(for="first-name") Last name 
+                        input(type="text", name="Last-name" id="last-name" class="block  bg-gray-100 px-4 py-2 rounded-md text-black mt-2") 
+                
+                    div
+                        label(for="age") Age 
+                        input(type="text",name="age" id="age" class="block  bg-gray-100 px-4 py-2 rounded-md text-black mt-2") 
+                    
+                    div 
+                        label(for="phone") Phone
+                        input(type="text",name="phone",id="phone",class="block bg-gray-100 px-4 py-2 rounded-md text-black mt-2") 
+                    
+                    div
+                        label(for="email") Email
+                        input(type="email",name="email",id="email", class="block bg-gray-100 px-4 py-2 rounded-md text-black mt-2 ") 
+                    div
+                        select(name="gender" class="text-black") Gender 
+                            option(value="") --Please select a gender --
+                            option(value="male") male
+                            option(value="female") female
+                        //- input(type="text",name="gender" id="gender" class="block bg-gray-100 px-4 py-2 rounded-md text-black mt-2 w-full") 
+                        
+                    div
+                        label(for="address") Address 
+                        input(type="text",name="address", class="block  bg-gray-100 px-4 py-2 rounded-md text-black mt-2") 
+                    div 
+                        label(for="programming") programming
+                        input(type="Checkbox", name="unit" value="programming" id="programming")
+                    div 
+                        label(for="Design") Design
+                        input(type="Checkbox", name="unit" value="design" id="design")
+                    div 
+                        label(for="maths") maths
+                        input(type="Checkbox", name="unit" value="maths"id="maths")
+                    div 
+                        label(for="Chemistry") Chemistry
+                        input(type="Checkbox", name="unit" value="chemistry"id="chemistry")
+
+                    button(type="Submit", class="bg-green-400 hover:bg-green-600 transition ease-in-out duration-300 px-8 py-3 rounded-md") Enroll Student 
+            
+            //-display list
+            div 
+                if students
+                    each student in students 
+                        ul 
+                            li= student.first_name
+                else 
+                    div(class="w-full h-full grid place-items-centre")
+         /               div 
+                            p(class="text-xl") Students will be displayed here 
+                            img(src="", alt="" )
